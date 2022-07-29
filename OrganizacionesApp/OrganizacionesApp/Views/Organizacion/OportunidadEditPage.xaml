@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrganizacionesApp.Views.Organizacion.OportunidadEditPage"
+             xmlns:helpers="clr-namespace:OrganizacionesApp.Helpers"
+             xmlns:viewmodels="clr-namespace:OrganizacionesApp.ViewModels">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ByteToImageFieldConverter x:Key="bic" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20,50" >
+                <Frame
+                    HasShadow="True"
+                    Padding="0"
+                    BackgroundColor="{StaticResource CardBackground}"
+                    CornerRadius="10">
+                    <Image 
+                        x:Name="imagen"
+                        Source="{Binding Imagen, Converter={StaticResource bic}}"
+                        Aspect="Fill"            
+                        HeightRequest="300"                                        
+                        >
+                    </Image>
+                </Frame>
+                <Button Text="Agregar imagen" Clicked="OnImageTapGestureRecognizerTapped"></Button>
+                <Label Text="Actividad" />
+
+                <Entry x:Name="ActividadEntry"
+                        Text="{Binding Path=Actividad}" 
+                        Placeholder="Actividad" />
+
+                <Label Text="Descripcion" />
+
+                <Entry x:Name="DescripcionEntry"
+                        Text="{Binding Path=Descripcion}"
+                        Placeholder="Descripción" />
+
+                <Label Text="Rol" />
+
+                <Entry x:Name="RolEntry"
+                        Text="{Binding Path=Rol}"
+                        Placeholder="Rol" />
+
+                <Label Text="Entorno" />
+
+                <Picker                    
+                        x:Name="EntornoPicker"
+                        Margin="0,0"   
+                        TextColor="{StaticResource TextPrimary}"                    
+                        FontSize="Medium"
+                        FontFamily="MonReg"
+                        Title="Elija un entorno"                    
+                        SelectedItem="{Binding Path=EntornoID}"                    
+                        ItemDisplayBinding="{Binding TipoEntorno}">
+                </Picker>
+
+                <Label Text="Intensidad" />
+
+                <Picker                    
+                        x:Name="IntensidadPicker"
+                        Margin="0,0"   
+                        TextColor="{StaticResource TextPrimary}"                    
+                        FontSize="Medium"
+                        FontFamily="MonReg"
+                        Title="Elija una intensidad"                    
+                        SelectedItem="{Binding Path=IntensidadID}"                    
+                        ItemDisplayBinding="{Binding TipoIntensidad}">
+                </Picker>
+
+                <Label Text="Social" />
+
+                <Picker                    
+                        x:Name="SocialPicker"
+                        Margin="0,0"   
+                        TextColor="{StaticResource TextPrimary}"                    
+                        FontSize="Medium"
+                        FontFamily="MonReg"
+                        Title="Elija la interacción social"                                        
+                        SelectedItem="{Binding Path=SocialID}"                        
+                        ItemDisplayBinding="{Binding TipoSocial}"
+                        >
+                </Picker>
+
+                <Label Text="Fecha de Inicio" />
+
+                <DatePicker MinimumDate="01/01/2022"
+                        MaximumDate="01/01/2099"
+                        Date="{Binding Path=FechaInicio}"
+                        x:Name="FechaInicioDatePicker"/>
+
+                <Label Text="Fecha de finalización" />
+
+                <DatePicker MinimumDate="{Binding Source={x:Reference FechaInicioDatePicker},
+                                          Path=Date}"
+                        MaximumDate="01/01/2099"
+                        Date="{Binding Path=FechaFin}"
+                        x:Name="FechaFinDatePicker"/>
+
+                <Label Text="Pais" />
+
+                <Picker                    
+                        x:Name="PaisPicker"
+                        Margin="0,0"   
+                        TextColor="{StaticResource TextPrimary}"                    
+                        FontSize="Medium"
+                        FontFamily="MonReg"
+                        Title="Elija el país"                                        
+                        SelectedItem="{Binding Path=Pais}"                        
+                        ItemDisplayBinding="{Binding NombrePais}"                        
+                        SelectedIndexChanged="OnSelectedPais"
+                        >
+                </Picker>
+
+                <Label Text="Provincia" />
+
+                <Picker                    
+                        x:Name="ProvinciaPicker"
+                        Margin="0,0"   
+                        TextColor="{StaticResource TextPrimary}"                    
+                        FontSize="Medium"
+                        FontFamily="MonReg"
+                        Title="Elija la provincia"                                        
+                        SelectedItem="{Binding Path=Provincia}"                        
+                        ItemDisplayBinding="{Binding NombreProvincia}"                        
+                        SelectedIndexChanged="OnSelectedProvincia"    
+                    >
+                </Picker>
+
+                <Label Text="Localidad" />
+
+                <Picker                    
+                        x:Name="LocalidadPicker"
+                        Margin="0,0"   
+                        TextColor="{StaticResource TextPrimary}"                    
+                        FontSize="Medium"
+                        FontFamily="MonReg"
+                        Title="Elija la localidad"                                        
+                        SelectedItem="{Binding Path=Localidad}"                        
+                        ItemDisplayBinding="{Binding TipoLocalidad}"
+                        >
+                </Picker>
+
+                <Button Text="Guardar" 
+                    Clicked="OnSaveButtonClicked" />
+                <Button Text="Cancelar" 
+                     Clicked="OnCancelButtonClicked" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

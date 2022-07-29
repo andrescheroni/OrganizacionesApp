@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:OrganizacionesApp.Views"
+       xmlns:common="clr-namespace:OrganizacionesApp.Views.Common"
+       xmlns:helpers="clr-namespace:OrganizacionesApp.Helpers"
+       xmlns:organizacion="clr-namespace:OrganizacionesApp.Views.Organizacion"
+       Title="OrganizacionesApp"
+       x:Class="OrganizacionesApp.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#FFFEFF" />                
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="White" />
+                <Setter Property="Shell.UnselectedColor" Value="#B4B4BA" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource TabBarBackground}" />                
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource TabIconSelected}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TabIconUnSelected}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource TabIconSelected}"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />            
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <ShellItem Route="LoginPage">
+        <ShellContent ContentTemplate="{DataTemplate common:LoginPage}"/>
+    </ShellItem>
+    
+    <TabBar>
+        <Tab Title="Oportunidades"
+             Route="OportunidadesPage"             
+             Shell.NavBarIsVisible="False"             
+             >            
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.HandsHoldingCircle}"/>
+            </Tab.Icon>
+            <ShellContent                            
+            ContentTemplate="{DataTemplate organizacion:OportunidadesPage}">
+            </ShellContent>
+        </Tab>
+        <Tab Title="Postulaciones"
+             Route="PostulacionesPage"
+             Shell.NavBarIsVisible="False"
+             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.HandshakeAngle}"/>
+            </Tab.Icon>
+            <ShellContent            
+            ContentTemplate="{DataTemplate organizacion:PostulacionesPage}">
+            </ShellContent>
+        </Tab>
+        <Tab Title="Mi Cuenta"
+             Route="PerfilPage"
+             Shell.NavBarIsVisible="True"             
+             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.User}"/>
+            </Tab.Icon>
+            <ShellContent            
+                Title="General"                       
+                ContentTemplate="{DataTemplate organizacion:PerfilGeneralPage}">
+            </ShellContent>
+            <!-- 
+            <ShellContent            
+                Title="Preferencias"
+                ContentTemplate="{DataTemplate organizacion:PerfilPreferenciasPage}">
+            </ShellContent>
+            -->
+        </Tab>
+        <Tab Title="Acerca de..."
+             Route="AcercaDePage"
+             Shell.NavBarIsVisible="False"
+             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.Ellipsis}"/>
+            </Tab.Icon>
+            <ShellContent            
+            ContentTemplate="{DataTemplate common:AcercaDePage}">
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>

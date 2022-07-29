@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:OrganizacionesApp.Helpers"
+             x:Class="OrganizacionesApp.Views.Organizacion.PerfilGeneralPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ByteToImageFieldConverter x:Key="bic" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Label
+                Text="{Binding RazonSocial}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                FontFamily="MonReg"
+                TextColor="Black"></Label>
+        </StackLayout>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20">
+                <Frame
+                        HasShadow="True"
+                        Padding="0"
+                        BackgroundColor="{StaticResource CardBackground}"
+                        CornerRadius="10">
+                    <Image 
+                            x:Name="imagen"
+                            Source="{Binding Imagen, Converter={StaticResource bic}}"
+                            Aspect="Fill"            
+                            HeightRequest="300"                                        
+                            >
+                    </Image>
+                </Frame>
+                <Button Text="Modificar imagen" Clicked="OnImageTapGestureRecognizerTapped"></Button>
+                <Label Text="Razon Social" />
+                <Entry Text="{Binding Path=RazonSocial}"/>
+                <Label Text="Descripción" />
+                <Entry Text="{Binding Path=Descripcion}"/>
+                <Label Text="CUIT" />
+                <Entry Text="{Binding Path=CUIT}"/>
+                <Label Text="Nombre del Responsable" />
+                <Entry Text="{Binding Path=NombreResponsable}"/>
+                <Label Text="Apellido del Responsable" />
+                <Entry Text="{Binding Path=ApellidoResponsable}"/>
+                <Label Text="DNI del Responsable" />
+                <Entry Text="{Binding Path=DNIResponsable}"/>
+                <Label Text="Dirección" />
+                <Entry Text="{Binding Path=Direccion}"/>
+                <Label Text="Pais" />
+                <Picker                    
+                            x:Name="PaisPicker"
+                            Margin="0,0"   
+                            TextColor="{StaticResource TextPrimary}"                    
+                            FontSize="Medium"
+                            FontFamily="MonReg"
+                            Title="Elija el país"                                        
+                            SelectedItem="{Binding Path=Pais}"                        
+                            ItemDisplayBinding="{Binding NombrePais}"                        
+                            SelectedIndexChanged="OnSelectedPais">
+                </Picker>
+                <Label Text="Provincia" />
+                <Picker                    
+                            x:Name="ProvinciaPicker"
+                            Margin="0,0"   
+                            TextColor="{StaticResource TextPrimary}"                    
+                            FontSize="Medium"
+                            FontFamily="MonReg"
+                            Title="Elija la provincia"                                        
+                            SelectedItem="{Binding Path=Provincia}"                        
+                            ItemDisplayBinding="{Binding NombreProvincia}"                        
+                            SelectedIndexChanged="OnSelectedProvincia">
+                </Picker>
+                <Label Text="Localidad" />
+                <Picker                    
+                            x:Name="LocalidadPicker"
+                            Margin="0,0"   
+                            TextColor="{StaticResource TextPrimary}"                    
+                            FontSize="Medium"
+                            FontFamily="MonReg"
+                            Title="Elija la localidad"                                        
+                            SelectedItem="{Binding Path=Localidad}"                        
+                            ItemDisplayBinding="{Binding TipoLocalidad}">
+                </Picker>
+                <Label Text="E-mail" />
+                <Entry Text="{Binding Path=Mail}"/>
+                
+                <Button Text="Cambiar password" 
+                    Clicked="OnChangePasswordButtonClicked" />
+                
+                <Label Text="Telefono" />
+                <Entry Text="{Binding Path=Telefono}"/>
+                
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                    <Label Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Text="Verificada:" />
+                    <CheckBox IsEnabled="False"  Grid.Column="1" Grid.Row="0" VerticalOptions="Center" IsChecked="{Binding Path=Verificacion}" />
+                    <Label Grid.Column="0" Grid.Row="1" VerticalOptions="Center" Text="Fecha de Registro:" />
+                    <Label Grid.Column="1" Grid.Row="1" VerticalOptions="Center" Text="{Binding FechaRegistro, StringFormat='{0:dd MMMM yyyy}'}"/>
+                </Grid>
+                
+                <Button Text="Guardar" 
+                    Clicked="OnSaveButtonClicked" />
+                <Button Text="Cancelar" 
+                    Clicked="OnCancelButtonClicked" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

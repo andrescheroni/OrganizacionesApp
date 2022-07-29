@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="OrganizacionesApp.Views.VoluntarioPage" 
+			 Title="Voluntario">
+    <StackLayout Margin="20">
+        <Label Text="Name" />
+        <Entry Text="{Binding Path=Nombre}" 
+               Placeholder="Enter item" />
+        <Label Text="Notes" />
+        <Entry Text="{Binding Path=Apellido}"
+               Placeholder="Enter notes" />
+        <Label Text="Done" />
+        <Switch IsToggled="{Binding Path=Verificacion}" />
+        <Button Text="Save" 
+                Clicked="OnSaveButtonClicked" />
+        <Button Text="Delete"
+                Clicked="OnDeleteButtonClicked" />
+        <Button Text="Cancel" 
+                Clicked="OnCancelButtonClicked" />
+    </StackLayout>
+</ContentPage>

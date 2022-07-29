@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrganizacionesApp.Views.Organizacion.OportunidadPage"             
+             xmlns:helpers="clr-namespace:OrganizacionesApp.Helpers">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ByteToImageFieldConverter x:Key="bic" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView Padding="10">
+        <StackLayout Padding="10,10">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                <Frame
+                    Grid.Row="0"
+                    HasShadow="True"
+                    Padding="0"
+                    BackgroundColor="{StaticResource CardBackground}"
+                    CornerRadius="10">
+                    <Image 
+                        Source="{Binding Imagen, Converter={StaticResource bic}}"
+                        Aspect="Fill"            
+                        HeightRequest="300"                                        
+                        >
+                    </Image>
+                </Frame>
+                <Label
+                    Grid.Row="1"
+                    Text="{Binding OrganizacionRazonSocial}"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource TextPrimary}"/>
+                <Label
+                    Grid.Row="2"
+                    FontSize="Medium"
+                    Text="{Binding Actividad}"/> 
+                <Label
+                    Grid.Row="5"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Rol"/>
+                <Label
+                    Grid.Row="6"
+                    FontSize="Medium"            
+                    Text="{Binding Rol}"/>
+                <Label
+                    Grid.Row="7"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Descripción"/>
+                <Label
+                    Grid.Row="8"
+                    FontSize="Medium"            
+                    Text="{Binding Descripcion}"/>
+                <Label
+                    Grid.Row="9"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Localidad"/>
+                <Label
+                    Grid.Row="10"
+                    FontSize="Medium"            
+                    Text="{Binding LocalidadTipoLocalidad}"/>
+                <Label
+                    Grid.Row="11"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Provincia"/>
+                <Label
+                    Grid.Row="12"
+                    FontSize="Medium"            
+                    Text="{Binding ProvinciaNombreProvincia}"/>
+                <Label
+                    Grid.Row="13"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="País"/>
+                <Label
+                    Grid.Row="14"
+                    FontSize="Medium"            
+                    Text="{Binding PaisNombrePais}"/>
+                <Label
+                    Grid.Row="15"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Fecha de Inicio"/>
+                <Label
+                    Grid.Row="16"
+                    FontSize="Medium"            
+                    Text="{Binding FechaInicio, StringFormat='{0:dd MMMM yyyy}'}"/>
+                <Label
+                    Grid.Row="17"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Fecha de Finalización"/>
+                <Label
+                    Grid.Row="18"
+                    FontSize="Medium"            
+                    Text="{Binding FechaFin, StringFormat='{0:dd MMMM yyyy}'}"/>
+
+            </Grid>
+            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*,*" Padding="10,10">
+                <Label
+                    Grid.Column="0"    
+                    Grid.Row="0"                
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Entorno"
+                    HorizontalTextAlignment="Center"/>
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    FontSize="Medium"            
+                    Text="{Binding EntornoTipoEntorno}"
+                    HorizontalTextAlignment="Center"/>
+                <Label
+                    Grid.Column="1"    
+                    Grid.Row="0"                
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Intensidad"
+                    HorizontalTextAlignment="Center"/>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    FontSize="Medium"            
+                    Text="{Binding IntensidadTipoIntensidad}"
+                    HorizontalTextAlignment="Center"/>
+                <Label
+                    Grid.Column="2"    
+                    Grid.Row="0"                
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="Social"
+                    HorizontalTextAlignment="Center"/>
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    FontSize="Medium"            
+                    Text="{Binding SocialTipoSocial}"
+                    HorizontalTextAlignment="Center"/>
+            </Grid>
+            <Button x:Name="buttonModificar"
+                Text="MODIFICAR"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="{StaticResource Primary}"
+                Clicked="OnModifyButtonClicked"/>
+            <Button x:Name="buttonPostulaciones"
+                Text="VER POSTULACIONES"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="{StaticResource Primary}"
+                Clicked="OnAppsButtonClicked"/>
+            <Button x:Name="buttonDarDeBaja"
+                Text="DAR DE BAJA"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="{StaticResource Primary}"
+                Clicked="OnDownButtonClicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

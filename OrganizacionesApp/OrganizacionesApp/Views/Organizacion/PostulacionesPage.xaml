@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrganizacionesApp.Views.Organizacion.PostulacionesPage"
+             xmlns:helpers="clr-namespace:OrganizacionesApp.Helpers">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ByteToImageFieldConverter x:Key="bic" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Grid 
+            RowDefinitions="Auto,Auto,Auto"
+            ColumnDefinitions="*,*,*"
+            HorizontalOptions="CenterAndExpand">
+            <Label            
+                Grid.Row="0"            
+                Grid.ColumnSpan="3"
+                Margin="0,0"                        
+                Text="Gestionar Postulaciones"
+                TextColor="{StaticResource TextPrimary}"
+                FontFamily="MonReg"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                FontSize="Title"/>
+            <Picker
+                x:Name="oportunidadesPicker"
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Margin="0,0"   
+                TextColor="{StaticResource TextPrimary}"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                FontSize="16"
+                FontFamily="MonRegIt"
+                Title="Elija una oportunidad"                
+                SelectedItem="{Binding OportunidadID}"
+                ItemDisplayBinding="{Binding Actividad}"
+                SelectedIndexChanged="OnOportunidadesPickerSelectedIndexChanged">                
+            </Picker>
+            <Label            
+                Grid.Column="0"
+                Grid.Row="2"            
+                Grid.ColumnSpan="2"
+                Margin="0,0"                        
+                Text="Solo pendientes"                
+                TextColor="{StaticResource TextPrimary}"
+                FontFamily="MonReg"
+                HorizontalOptions="End"            
+                VerticalOptions="Center"
+                FontSize="Medium"/>
+            <CheckBox            
+                x:Name="pendientesCheckBox"
+                Grid.Column="2"
+                Grid.Row="2"                
+                HorizontalOptions="Start"
+                VerticalOptions="Center"                
+                CheckedChanged="OnPendientesCheckBoxCheckedChanged"/>
+        </Grid>
+        <CollectionView
+            Grid.Row="2"
+            x:Name="listaPostulaciones"
+            SelectionMode="Single"
+            SelectionChanged="OnCollectionViewSelectionChanged">            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="#D4D4DA">
+                        <Frame
+                            Margin="10,6"
+                            CornerRadius="10">
+                            <Grid 
+                                RowDefinitions="Auto, Auto"
+                                ColumnDefinitions ="Auto, *, Auto">
+                                <Image
+                                    HeightRequest="80"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding VoluntarioImagen, Converter={StaticResource bic}}"
+                                    Aspect="Fill"  
+                                    VerticalOptions="Center"
+                                    WidthRequest="80">
+                                    <Image.Clip>
+                                        <EllipseGeometry
+                                                Center="40,40"
+                                                RadiusX="39"
+                                                RadiusY="39" />
+                                    </Image.Clip>
+                                </Image>
+                                <Label                            
+                                    Grid.Row="1"                                    
+                                    Text="{Binding VoluntarioNombreCompleto}"
+                                    FontFamily="MonReg"
+                                    FontSize="Medium"                                                        
+                                    TextColor="{StaticResource TextPrimary}">
+                                </Label>
+                                <Label
+                                    Grid.Column="2"
+                                    Grid.Row="0"
+                                    Text="{Binding FechaPostulacion, StringFormat='{0:dd MMMM yyyy}'}"
+                                    FontFamily="MonRegIt"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    TextColor="{StaticResource TextPrimary}"/>
+                                <Label
+                                    Grid.Column="2"
+                                    Grid.Row="1"
+                                    Text="{Binding EstadopostulacionEstado}"
+                                    FontFamily="MonRegIt"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    TextColor="{StaticResource TextPrimary}"/>                                
+                            </Grid>                            
+                        </Frame>                        
+                    </Grid>    
+                 </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
