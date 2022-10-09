@@ -28,7 +28,7 @@ namespace OrganizacionesApp.Views.Organizacion
 
             BindingContext = organizacionItem;
 
-            imageHolder = organizacionItem.Imagen;
+            //imageHolder = organizacionItem.Imagen;
 
             PopulatePickers(organizacionItem);
         }

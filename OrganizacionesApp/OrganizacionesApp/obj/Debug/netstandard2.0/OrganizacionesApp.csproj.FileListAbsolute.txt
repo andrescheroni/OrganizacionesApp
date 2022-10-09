@@ -1,7 +1,3 @@
-C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\OrganizacionesApp.deps.json
-C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\OrganizacionesApp.dll
-C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\ref\OrganizacionesApp.dll
-C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\OrganizacionesApp.pdb
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\OrganizacionesApp.csproj.AssemblyReference.cache
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\OrganizacionesApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\App.xaml.g.cs
@@ -25,7 +21,11 @@ C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\OrganizacionesApp.AssemblyInfoInputs.cache
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\OrganizacionesApp.AssemblyInfo.cs
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\OrganizacionesApp.csproj.CoreCompileInputs.cache
-C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\XamlC.stamp
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\OrganizacionesApp.dll
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\ref\OrganizacionesApp.dll
 C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\OrganizacionesApp.pdb
+C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\OrganizacionesApp.deps.json
+C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\OrganizacionesApp.dll
+C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\ref\OrganizacionesApp.dll
+C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\bin\Debug\netstandard2.0\OrganizacionesApp.pdb
+C:\source\Repos\OrganizacionesApp\OrganizacionesApp\OrganizacionesApp\obj\Debug\netstandard2.0\XamlC.stamp
