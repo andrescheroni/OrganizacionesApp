@@ -13,7 +13,7 @@ Módulo API: Controla el acceso a la base de datos. Link: https://github.com/and
 
 # Status
 
-% Completado: 80%
+% Completado: 100%
 
 # Instrucciones de instalación
 
